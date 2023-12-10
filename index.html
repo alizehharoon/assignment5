@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food Items App</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Food Items App</h1>
+
+        <div class="section">
+            <h2>Add Food Item</h2>
+            <form id="addFoodItemForm">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" required>
+                <br>
+                <label for="cuisine">Cuisine:</label>
+                <input type="text" id="cuisine" required>
+                <br>
+                <button type="button" onclick="addFoodItem()">Add Food Item</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Update Food Item</h2>
+            <form id="updateFoodItemForm">
+                <label for="updateItemId">Food Item ID:</label>
+                <input type="text" id="updateItemId" required>
+                <br>
+                <label for="updateItemName">Item Name:</label>
+                <input type="text" id="updateItemName" required>
+                <br>
+                <label for="updateCuisine">Cuisine:</label>
+                <input type="text" id="updateCuisine" required>
+                <br>
+                <button type="button" onclick="updateFoodItem()">Update Food Item</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Get Food Item</h2>
+            <form id="getFoodItemForm">
+                <label for="getFoodItemId">Food Item ID:</label>
+                <input type="text" id="getFoodItemId" required>
+                <br>
+                <button type="button" onclick="getFoodItem()">Get Food Item</button>
+                <div id="foodItemDetails"></div>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Delete Food Item</h2>
+            <form id="deleteFoodItemForm">
+                <label for="deleteItemId">Food Item ID:</label>
+                <input type="text" id="deleteItemId" required>
+                <br>
+                <button type="button" onclick="deleteFoodItem()">Delete Food Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="index2.js"> </script>
+</body>
+</html>

@@ -1,28 +1,16 @@
 const express = require('express');
 const app = express();
-app.use(express.json());
 const mongoose = require('mongoose');
-const { createFoodItem, getAllFoodItems, deleteFoodItem, updateFoodItem } = require('./FoodItemsOperations');
+const foodItemsRouter = require('./foodItemsRouter');
 
-mongoose
-  .connect('mongodb+srv://admin:admin123@cluster0.thui9dw.mongodb.net/menu')
-  .then(async () => {
-    console.log('Connected to Mongoose');
+mongoose.connect('mongodb+srv://sp22bse085:RTDX$7768@cluster0.m7l1mbh.mongodb.net/menu', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-    let foodItem = await createFoodItem(1, 'Pizza', 'Italian');
-    console.log(foodItem);
+app.use('/fooditems', foodItemsRouter);
 
-    let allFoodItems = await getAllFoodItems();
-    console.log(allFoodItems);
-
-    console.log(await deleteFoodItem('656f4c7101a127670ff7879b')); 
-
-    let updatedFoodItem = await updateFoodItem('656f4c7101a127670ff7879b', 'Burger', 'Fast food');
-    console.log(updatedFoodItem);
-  })
-  .catch((err) => {
-    console.log('Error detected');
-    console.log(err);
-  });
-
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
